@@ -27,7 +27,7 @@ namespace MetasoundExtras {
 			Info.MajorVersion      = 1;
 			Info.MinorVersion      = 0;
 			Info.DisplayName       = LOCTEXT("MetasoundExtras_CosDisplayName", "Cos");
-			Info.Description       = LOCTEXT("MetasoundExtras_CosNodeDescription", "A cosine wavetable reader. The input is a linear index from 0 to 1 and you can also consider it a cosine trigonometric function of the input multiplied by 2 * PI. Values outside the 0-1 range get wrapped inside this range.");
+			Info.Description       = LOCTEXT("MetasoundExtras_CosNodeDescription", "Cosine wavetable reader [0, 1] -> [0, 1]. Values outside the 0-1 range get clamped.");
 			Info.Author            = PluginAuthor;
 			Info.PromptIfMissing   = PluginNodeMissingPrompt;
 			Info.DefaultInterface  = GetVertexInterface();
@@ -79,8 +79,8 @@ namespace MetasoundExtras {
 	}
 
 	void FCosOperator::Execute() {
-		float clampedValue = (*Input < 0.0f)? 0.0f : (*Input > 1.0f)? 1.0f : *Input;
-		*Output = cos(clampedValue * 2 * UE_PI);
+		float wrappedValue = fmod(1.0f + fmod(*Input, 1.0f), 1.0f);
+		*Output = cos(wrappedValue * 2 * UE_PI);
 	}
 
 	METASOUND_REGISTER_NODE(FCosNode)
