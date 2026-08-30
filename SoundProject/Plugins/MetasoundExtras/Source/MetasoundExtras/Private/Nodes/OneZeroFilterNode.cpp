@@ -1,6 +1,6 @@
 ﻿#include "Nodes/OneZeroFilterNode.h"
 
-#define LOCTEXT_NAMESPACE "MetasoundExtras_CosNode"
+#define LOCTEXT_NAMESPACE "MetasoundExtras_ZeroOneFilterNode"
 
 namespace MetasoundExtras {
 	
