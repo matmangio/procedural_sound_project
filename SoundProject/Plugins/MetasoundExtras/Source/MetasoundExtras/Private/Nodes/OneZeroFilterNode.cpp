@@ -27,12 +27,12 @@ namespace MetasoundExtras {
 			Info.ClassName         = { TEXT("UE"), TEXT("OneZeroFilter"), TEXT("Audio") };
 			Info.MajorVersion      = 1;
 			Info.MinorVersion      = 0;
-			Info.DisplayName       = LOCTEXT("MetasoundExtras_OneZeroDisplayName", "OneZeroFilter");
+			Info.DisplayName       = LOCTEXT("MetasoundExtras_OneZeroDisplayName", "One-Zero Filter");
 			Info.Description       = LOCTEXT("MetasoundExtras_OneZeroNodeDescription", "Raw one-zero non-recursive real filter.");
 			Info.Author            = PluginAuthor;
 			Info.PromptIfMissing   = PluginNodeMissingPrompt;
 			Info.DefaultInterface  = GetVertexInterface();
-			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_OneZeroNodeCategory", "Extras") };
+			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_OneZeroNodeCategory", "Filters") };
 
 			return Info;
 		};

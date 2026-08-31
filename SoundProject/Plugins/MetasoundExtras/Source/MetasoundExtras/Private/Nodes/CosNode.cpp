@@ -31,7 +31,7 @@ namespace MetasoundExtras {
 			Info.Author            = PluginAuthor;
 			Info.PromptIfMissing   = PluginNodeMissingPrompt;
 			Info.DefaultInterface  = GetVertexInterface();
-			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_CosNodeCategory", "Extras") };
+			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_CosNodeCategory", "Math") };
 
 			return Info;
 		};

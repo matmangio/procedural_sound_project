@@ -32,12 +32,12 @@ namespace MetasoundExtras {
 			Info.ClassName         = { TEXT("UE"), TEXT("BpFilter"), TEXT("Audio") };
 			Info.MajorVersion      = 1;
 			Info.MinorVersion      = 0;
-			Info.DisplayName       = LOCTEXT("MetasoundExtras_BpFilterDisplayName", "BpFilter");
+			Info.DisplayName       = LOCTEXT("MetasoundExtras_BpFilterDisplayName", "Band-pass Filter");
 			Info.Description       = LOCTEXT("MetasoundExtras_BpFilterNodeDescription", "A 2-pole bandpass filter.");
 			Info.Author            = PluginAuthor;
 			Info.PromptIfMissing   = PluginNodeMissingPrompt;
 			Info.DefaultInterface  = GetVertexInterface();
-			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_BpFilterNodeCategory", "Extras") };
+			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_BpFilterNodeCategory", "Filters") };
 
 			return Info;
 		};

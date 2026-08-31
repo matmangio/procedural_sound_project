@@ -34,12 +34,12 @@ namespace MetasoundExtras {
 			Info.ClassName         = { TEXT("UE"), TEXT("VcfFilter"), TEXT("Audio") };
 			Info.MajorVersion      = 1;
 			Info.MinorVersion      = 0;
-			Info.DisplayName       = LOCTEXT("MetasoundExtras_vDisplayName", "VcfFilter");
+			Info.DisplayName       = LOCTEXT("MetasoundExtras_VcfFilterDisplayName", "Vcf Filter");
 			Info.Description       = LOCTEXT("MetasoundExtras_VcfFilterNodeDescription", "A resonant bandpass filter that takes an audio signal as center frequency, which may thus change continuously in time as in an analog voltage controlled filter.");
 			Info.Author            = PluginAuthor;
 			Info.PromptIfMissing   = PluginNodeMissingPrompt;
 			Info.DefaultInterface  = GetVertexInterface();
-			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_VcfFilterNodeCategory", "Extras") };
+			Info.CategoryHierarchy = { LOCTEXT("MetasoundExtras_VcfFilterNodeCategory", "Filters") };
 
 			return Info;
 		};
