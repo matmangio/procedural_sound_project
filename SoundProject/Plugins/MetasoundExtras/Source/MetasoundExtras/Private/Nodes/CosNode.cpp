@@ -23,10 +23,10 @@ namespace MetasoundExtras {
 		{
 			FNodeClassMetadata Info;
 
-			Info.ClassName         = { TEXT("UE"), TEXT("Cos"), TEXT("Audio") };
+			Info.ClassName         = { TEXT("UE"), TEXT("Cos (Float)"), TEXT("Audio") };
 			Info.MajorVersion      = 1;
 			Info.MinorVersion      = 0;
-			Info.DisplayName       = LOCTEXT("MetasoundExtras_CosDisplayName", "Cos");
+			Info.DisplayName       = LOCTEXT("MetasoundExtras_CosDisplayName", "Cos (Float)");
 			Info.Description       = LOCTEXT("MetasoundExtras_CosNodeDescription", "Cosine wavetable reader [0, 1] -> [0, 1]. Values outside the 0-1 range get clamped.");
 			Info.Author            = PluginAuthor;
 			Info.PromptIfMissing   = PluginNodeMissingPrompt;

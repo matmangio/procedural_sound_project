@@ -6,7 +6,6 @@
 
 namespace MetasoundExtras {
 	
-	// Computes cosine of a value in [0, 1]
 	class FLineOperator : public Metasound::TExecutableOperator<FLineOperator> {
 	public:
 		FLineOperator(const Metasound::FOperatorSettings& InSettings, const Metasound::FTriggerReadRef& InTrigger, const Metasound::FFloatReadRef& InDecayTime);

@@ -6,7 +6,6 @@
 
 namespace MetasoundExtras {
 	
-	// Computes cosine of a value in [0, 1]
 	class FOneZeroFilterOperator : public Metasound::TExecutableOperator<FOneZeroFilterOperator> {
 	public:
 		FOneZeroFilterOperator(const Metasound::FOperatorSettings& InSettings, const Metasound::FAudioBufferReadRef& InAudio, const Metasound::FFloatReadRef& InCoefficient);

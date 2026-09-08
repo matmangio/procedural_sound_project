@@ -6,7 +6,6 @@
 
 namespace MetasoundExtras {
 	
-	// Computes cosine of a value in [0, 1]
 	class FVcfFilterOperator : public Metasound::TExecutableOperator<FVcfFilterOperator> {
 	public:
 		FVcfFilterOperator(const Metasound::FOperatorSettings& InSettings, const Metasound::FAudioBufferReadRef& InAudio, const Metasound::FAudioBufferReadRef& InFrequency, const Metasound::FFloatReadRef& InQ);

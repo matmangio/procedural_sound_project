@@ -6,9 +6,9 @@
 
 namespace MetasoundExtras {
 	
-	class BpFilterOperator : public Metasound::TExecutableOperator<BpFilterOperator> {
+	class FCosSigOperator : public Metasound::TExecutableOperator<FCosSigOperator> {
 	public:
-		BpFilterOperator(const Metasound::FOperatorSettings& InSettings, const Metasound::FAudioBufferReadRef& InAudio, const Metasound::FFloatReadRef& InFrequency, const Metasound::FFloatReadRef& InQ);
+		FCosSigOperator(const Metasound::FOperatorSettings& InSettings, const Metasound::FAudioBufferReadRef& InAudio);
 
 		static const Metasound::FNodeClassMetadata& GetNodeInfo();
 
@@ -19,26 +19,15 @@ namespace MetasoundExtras {
 		static TUniquePtr<Metasound::IOperator> CreateOperator(const Metasound::FBuildOperatorParams& InParams, Metasound::FBuildResults& OutResults);
 
 		void Execute();
-		
-		void Reset(const IOperator::FResetParams& InParams);
 
 	private:
-
 		// Inputs
-		Metasound::FAudioBufferReadRef AudioIn;
-		Metasound::FFloatReadRef Frequency;
-		Metasound::FFloatReadRef Q;
+		Metasound::FAudioBufferReadRef Input;
 		
 		// Outputs
-		Metasound::FAudioBufferWriteRef AudioOut;
+		Metasound::FAudioBufferWriteRef Output;
 		
-		// Utilities
-		float SampleRate = 48000.0f;
-		
-		// Persistent state
-		float S1 = 0.0f, S2 = 0.0f;
 	};
 
-	using FBpFilterNode = Metasound::TNodeFacade<BpFilterOperator>;
+	using FCosSigNode = Metasound::TNodeFacade<FCosSigOperator>;
 }
-
