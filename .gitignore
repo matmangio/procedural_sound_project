@@ -2,4 +2,5 @@
 .vscode/
 .vs/
 .idea/
-Builds/
+[B|b]uilds/
+[P|p]df/
