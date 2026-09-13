@@ -27,19 +27,30 @@ Sebbene disponga di una notevole gamma di nodi e filtri predefiniti, Metasound �
 Per riprodurre fedelmente i grafi proposti da Farnell è stato dunque necessario ampliare le funzionalità di Metasound tramite la creazione di un apposito **plugin** (il cui sorgente è consultabile nella directory *SoundProject/Plugins/MetasoundExtras/Source*).
 In particolare, la seguente tabella indica gli oggetti di PureData che sono stati trasposti assieme al loro nome in Metasound e ad eventuali note.
 
-|PureData|Metasound|Note|
+|Oggetto PureData|Nodo Metasound|Note|
 |----------------|---------------------|----|
 |`bp~`|`Band-pass Filter`|L'unico filtro passa-banda disponibile nativamente in Metasound è un filtro Bi-quad dall'effetto considerevolmente differente.|
 |`cos` e `cos~`|`Cos (Float)` e `Cos (Audio)`|Sebbene PureData utilizzi in realtà un'approssimazione polinomiale del coseno, questa non è stata riprodotta optando invece per l'uso della funzione `std::cos()`.|
-|`/~`|`Divide (Audio)`|Il nodo Divide di Metasound funziona solo su dati Float.|
+|`/~`|`Divide (Audio)`|Il nodo Divide di Metasound funziona solo su dati Float, dunque è stato necessario crearne una versione separata per i flussi audio.|
 |`line~`|`Line` e `Line (with target)`|I due nodi rappresentano due versioni leggermente diverse del nodo, dove la seconda è più configurabile della prima e non necessita di un Trigger per essere azionata.|
 |`rzero~`|`One-Zero Filter`||
-|`vcf~`|`Vcf Filter`|Metasound non ha un filtro voltage-controlled risonante nativo, e specialmente non uno che accetti la frequenza a sample-rate.|
+|`vcf~`|`Vcf Filter`|Metasound non ha un filtro voltage-controlled risonante nativo, e specialmente non uno che accetti la frequenza come segnale audio a sample-rate.|
 |`wrap~`|`Wrap`||
 
 ### Spazializzazione
 
+Per permettere un ascolto più interattivo dei suoni procedurali proposti è stata poi creata una scena 3D entro cui l'utente potesse muoversi, realizzata dall'assemblaggio di numerosi asset grafici ottenuti gratuitamente sullo store [Fab](https://www.fab.com/) di Unreal Engine.
+Nonostante non si trattasse del focus del progetto, ciò ha quindi richiesto un certo grado di **spazializzazione** dell'audio generato.
+Ciò è stato realizzato tramite la combinazione di due componenti:
 
+- **Sound Attenuation**, asset di Unreal Engine che, assegnati a una sorgente sonora, definiscono come attenuarne il suono in base alla distanza dall'avatar giocante e come farne il panning stereo.
+
+	![Esempio Sound Attenuation](assets/sa_fire.png)
+
+- **ITD Panning**, una MetaSound Patch personalizzata che agisce da wrapper per il nodo `ITD Panner`: quest'ultimo, utilizzando l'Azimuth del suono e la sua Distanza dall'avatar scalata tra 0 e 1 (entrambi dati ottenuti tramite apposite interfacce), applica una pre-spazializzazione al suono replicando l'*Interaural Time Difference*.
+	Questa tecnica non è stata però applicata ai suoni "diffusi" che, non potendo essere ridotti a sorgenti semi-puntiformi, avrebbero generato notevoli artefatti uditivi qualora fossero stati spazializzati in tale maniera (sciame di insetti, alcune componenti del vento e il suono dei passi).
+
+	![ITDPanning patch](assets/msp_itdPanning.png)
 
 ## Sorgenti sonore
 
