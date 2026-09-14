@@ -33,6 +33,8 @@ h3:before {
 }
 h3 {
     counter-reset: ssubheading;
+	text-decoration: underline;
+	font-size: large - 0.5px;
 }
 h4:before {
 	content: counter(heading)"." counter(subheading)"."counter(ssubheading)". ";
